@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prénom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n90-rL-zrs">
-                                <rect key="frame" x="65" y="197" width="191" height="30"/>
+                                <rect key="frame" x="65" y="157" width="191" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -159,7 +159,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NEB-Tb-VJy">
-                                <rect key="frame" x="62" y="128" width="194" height="30"/>
+                                <rect key="frame" x="62" y="92" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -170,11 +170,17 @@
                                     <action selector="CreerCompte:" destination="6jW-hZ-0Da" eventType="touchUpInside" id="lRv-dY-erE"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code postal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mpj-bs-H9c">
+                                <rect key="frame" x="65" y="211" width="191" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="codePostal" destination="Mpj-bs-H9c" id="9Pn-Lf-nDZ"/>
                         <outlet property="confirmPassword" destination="SZe-zB-dc5" id="bhk-fV-DqD"/>
                         <outlet property="creerCompte" destination="nSg-pL-Zds" id="Hsc-eg-OFA"/>
                         <outlet property="nom" destination="NEB-Tb-VJy" id="YQT-DR-jyD"/>

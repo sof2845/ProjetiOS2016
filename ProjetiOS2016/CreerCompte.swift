@@ -19,6 +19,7 @@ class CreerCompte: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var prenom: UITextField!
     @IBOutlet weak var nom: UITextField!
+    @IBOutlet weak var codePostal: UITextField!
     
     @IBAction func CreerCompte(sender: AnyObject) {
         if(password.text == confirmPassword.text){
@@ -28,6 +29,9 @@ class CreerCompte: UIViewController {
             let utilisateur = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
             utilisateur.setValue(username.text, forKey: "username")
             utilisateur.setValue(password.text, forKey: "password")
+            utilisateur.setValue(nom.text, forKey: "nom")
+            utilisateur.setValue(prenom.text, forKey: "prenom")
+            utilisateur.setValue(Int(codePostal.text!), forKey: "codePostal")
             
             do{
                 try managedContext.save()
