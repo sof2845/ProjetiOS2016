@@ -7,9 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class CreerService: UIViewController {
 
+    @IBOutlet weak var nomService: UITextField!
+    @IBOutlet weak var categorieService: UITextField!
+    @IBOutlet weak var descriptionService: UITextView!
+    @IBOutlet weak var heureDureeService: UITextField!
+    @IBOutlet weak var minuteDureeService: UITextField!
+    @IBOutlet weak var debutDisponibilite: UIDatePicker!
+    @IBOutlet weak var finDisponibilite: UIDatePicker!
+    @IBAction func creerService(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let entity = NSEntityDescription.entityForName("Service", inManagedObjectContext:managedContext)
+        let utilisateur = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        utilisateur.setValue(nomService.text, forKey: "nomService")
+        utilisateur.setValue(categorieService.text, forKey: "categorieService")
+        utilisateur.setValue(descriptionService.text, forKey: "descriptionService")
+        let dureeService = Int(heureDureeService.text!)! + ((Int(minuteDureeService.text!))! / 60)
+        utilisateur.setValue(dureeService, forKey: "tempsService")
+        utilisateur.setValue(debutDisponibilite, forKey: "dateDebutService")
+        utilisateur.setValue(finDisponibilite, forKey: "dateFinService")
+        
+        do{
+            try managedContext.save()
+        }catch{
+            print("erreur")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
