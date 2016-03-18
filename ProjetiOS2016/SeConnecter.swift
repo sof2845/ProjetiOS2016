@@ -38,6 +38,8 @@ class SeConnecter: UIViewController {
                 
                 let res = results![0] as! NSManagedObject
                 
+                navigationController?.popViewControllerAnimated(true)
+                
                 
                 
                 
