@@ -74,7 +74,7 @@
         <!--Créer un compte-->
         <scene sceneID="vjh-Ba-5EH">
             <objects>
-                <viewController title="Créer un compte" id="6jW-hZ-0Da" sceneMemberID="viewController">
+                <viewController title="Créer un compte" id="6jW-hZ-0Da" customClass="CreerCompte" customModule="ProjetiOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j6b-H2-waJ"/>
                         <viewControllerLayoutGuide type="bottom" id="QyJ-gu-TgJ"/>
@@ -82,9 +82,51 @@
                     <view key="view" contentMode="scaleToFill" id="tK3-Mx-T1d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prénom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n90-rL-zrs">
+                                <rect key="frame" x="112" y="199" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom d'utilisateur" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-uo-9Uk">
+                                <rect key="frame" x="112" y="269" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebZ-vy-o0B">
+                                <rect key="frame" x="112" y="338" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmer le mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-zB-dc5">
+                                <rect key="frame" x="112" y="396" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-pL-Zds">
+                                <rect key="frame" x="137" y="468" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="CreerCompte:" destination="6jW-hZ-0Da" eventType="touchUpInside" id="lRv-dY-erE"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NEB-Tb-VJy">
+                                <rect key="frame" x="112" y="128" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="SZe-zB-dc5" id="bhk-fV-DqD"/>
+                        <outlet property="creerCompte" destination="nSg-pL-Zds" id="Hsc-eg-OFA"/>
+                        <outlet property="nom" destination="NEB-Tb-VJy" id="YQT-DR-jyD"/>
+                        <outlet property="password" destination="ebZ-vy-o0B" id="OOl-5z-ZPN"/>
+                        <outlet property="prenom" destination="n90-rL-zrs" id="FvT-Dq-zYC"/>
+                        <outlet property="username" destination="Zg1-uo-9Uk" id="iJg-7o-HMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpZ-z2-q6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
