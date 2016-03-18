@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prénom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n90-rL-zrs">
-                                <rect key="frame" x="65" y="197" width="191" height="30"/>
+                                <rect key="frame" x="65" y="157" width="191" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -162,7 +162,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NEB-Tb-VJy">
-                                <rect key="frame" x="62" y="128" width="194" height="30"/>
+                                <rect key="frame" x="62" y="92" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -173,11 +173,17 @@
                                     <action selector="CreerCompte:" destination="6jW-hZ-0Da" eventType="touchUpInside" id="lRv-dY-erE"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code postal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mpj-bs-H9c">
+                                <rect key="frame" x="65" y="211" width="191" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="codePostal" destination="Mpj-bs-H9c" id="9Pn-Lf-nDZ"/>
                         <outlet property="confirmPassword" destination="SZe-zB-dc5" id="bhk-fV-DqD"/>
                         <outlet property="creerCompte" destination="nSg-pL-Zds" id="Hsc-eg-OFA"/>
                         <outlet property="nom" destination="NEB-Tb-VJy" id="YQT-DR-jyD"/>
@@ -213,13 +219,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4nT-2a-7Wn">
-                                <rect key="frame" x="11" y="361" width="297" height="56"/>
+                                <rect key="frame" x="11" y="361" width="297" height="41"/>
                                 <date key="date" timeIntervalSinceReferenceDate="479989446.47817498">
                                     <!--2016-03-18 10:24:06 +0000-->
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-aR-PCn">
-                                <rect key="frame" x="11" y="454" width="297" height="62"/>
+                                <rect key="frame" x="12" y="434" width="297" height="42"/>
                                 <date key="date" timeIntervalSinceReferenceDate="479989483.62526602">
                                     <!--2016-03-18 10:24:43 +0000-->
                                 </date>
@@ -237,7 +243,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fin de disponibilité :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-OW-roY">
-                                <rect key="frame" x="84" y="425" width="152" height="21"/>
+                                <rect key="frame" x="84" y="410" width="152" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -264,10 +270,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-Yo-fi0">
+                                <rect key="frame" x="111" y="484" width="99" height="30"/>
+                                <state key="normal" title="Créer service"/>
+                                <connections>
+                                    <action selector="creerService:" destination="cXb-tq-9DB" eventType="touchUpInside" id="xBk-sb-hpU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="categorieService" destination="Ovg-Jw-PfF" id="c0f-Uq-fBX"/>
+                        <outlet property="debutDisponibilite" destination="4nT-2a-7Wn" id="jQh-4s-D85"/>
+                        <outlet property="descriptionService" destination="usP-5J-Cpi" id="1an-Jh-EO8"/>
+                        <outlet property="finDisponibilite" destination="xPm-aR-PCn" id="Tt0-pi-wsR"/>
+                        <outlet property="heureDureeService" destination="r1w-Ri-f1L" id="I8d-7g-qMe"/>
+                        <outlet property="minuteDureeService" destination="Gdm-Ek-Lhk" id="lfG-pn-oXX"/>
+                        <outlet property="nomService" destination="QT0-RE-TxH" id="CMw-7x-s4j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="508-qH-2ga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
