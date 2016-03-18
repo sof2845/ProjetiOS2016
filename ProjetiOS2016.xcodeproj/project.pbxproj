@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F231DEBA1C9C057000D39E7B /* SeConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F231DEB91C9C057000D39E7B /* SeConnecter.swift */; };
 		F28F40AE1C9BF18F003B54F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F40AD1C9BF18F003B54F3 /* AppDelegate.swift */; };
 		F28F40B01C9BF18F003B54F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F40AF1C9BF18F003B54F3 /* ViewController.swift */; };
 		F28F40B31C9BF18F003B54F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28F40B11C9BF18F003B54F3 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F231DEB91C9C057000D39E7B /* SeConnecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeConnecter.swift; sourceTree = "<group>"; };
 		F28F40AA1C9BF18F003B54F3 /* ProjetiOS2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetiOS2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28F40AD1C9BF18F003B54F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F28F40AF1C9BF18F003B54F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				F28F40AD1C9BF18F003B54F3 /* AppDelegate.swift */,
 				F28F40AF1C9BF18F003B54F3 /* ViewController.swift */,
 				F28F40B11C9BF18F003B54F3 /* Main.storyboard */,
+				F231DEB91C9C057000D39E7B /* SeConnecter.swift */,
 				F28F40B71C9BF18F003B54F3 /* Assets.xcassets */,
 				F28F40B91C9BF18F003B54F3 /* LaunchScreen.storyboard */,
 				F28F40BC1C9BF18F003B54F3 /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28F40B01C9BF18F003B54F3 /* ViewController.swift in Sources */,
+				F231DEBA1C9C057000D39E7B /* SeConnecter.swift in Sources */,
 				F28F40B61C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld in Sources */,
 				F28F40AE1C9BF18F003B54F3 /* AppDelegate.swift in Sources */,
 			);
@@ -288,6 +292,7 @@
 				F28F40C11C9BF18F003B54F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
