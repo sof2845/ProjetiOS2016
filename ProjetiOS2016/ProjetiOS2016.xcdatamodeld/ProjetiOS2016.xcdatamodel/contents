@@ -32,9 +32,9 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Utilisateur" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Service" positionX="-27" positionY="18" width="128" height="165"/>
-        <element name="Note" positionX="0" positionY="45" width="128" height="120"/>
         <element name="Message" positionX="27" positionY="72" width="128" height="120"/>
+        <element name="Note" positionX="0" positionY="45" width="128" height="120"/>
+        <element name="Service" positionX="-27" positionY="18" width="128" height="165"/>
+        <element name="Utilisateur" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
