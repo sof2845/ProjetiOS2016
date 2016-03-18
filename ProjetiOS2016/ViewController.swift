@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ViewController: UIViewController {
 
@@ -14,10 +16,28 @@ class ViewController: UIViewController {
     
     var tache = ["titi", "toto", "tata", "tutu", "test2"]
     
-    var current = "null"
+    var current:String = "SS"
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+  
+    
+
+    
+    
+    /*override func prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+    {
+    if ([[segue identifier] isEqualToString:@"monLienDeConnection"])
+    {
+    ViewController2 *vc2 = [segue destinationViewController];
+    vc2.maVariableATransmettre= 1;
+    
+    }
+    }*/
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+                super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -28,6 +48,7 @@ class ViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          print(current)
         return tache.count
     }
     
@@ -39,6 +60,18 @@ class ViewController: UIViewController {
         
         return cell!
     }
+/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "allerSeCO" {
+            
+            var message = segue.destinationViewController as! SeConnecter
+            
+         
+            
+            
+            
+        }
+        
+    }*/
 
 
 

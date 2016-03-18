@@ -9,13 +9,38 @@
 import UIKit
 import CoreData
 
+protocol AddToDotodo {
 
+    func addnew(st: String)
+
+
+	}
 
 
 class SeConnecter: UIViewController {
     
     @IBOutlet weak var mdp: UITextField!
     @IBOutlet weak var user: UITextField!
+    
+    var delegate: AddToDotodo!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "allerSeCO" {
+            
+            var message = segue.destinationViewController as! ViewController
+            
+            message.current = "YOW yow"
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+
     
     
     @IBAction func testCo(sender: AnyObject) {
@@ -41,6 +66,12 @@ class SeConnecter: UIViewController {
             {
                 
                 let res = results![0] as! NSManagedObject
+                
+                
+             
+                
+                
+                
                 
                 navigationController?.popViewControllerAnimated(true)
                 

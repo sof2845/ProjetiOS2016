@@ -68,7 +68,7 @@
                     <navigationItem key="navigationItem" id="zoA-Gr-Vba">
                         <barButtonItem key="leftBarButtonItem" title="Se Connecter" id="AmS-lQ-YCI">
                             <connections>
-                                <segue destination="93q-sD-iAX" kind="show" id="Pau-ag-Mb6"/>
+                                <segue destination="93q-sD-iAX" kind="show" identifier="allerSeCO" id="Pau-ag-Mb6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Créer un compte" id="2db-vD-bcm">
@@ -79,6 +79,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="hQf-JT-Yqk" id="qlu-dG-3O1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
