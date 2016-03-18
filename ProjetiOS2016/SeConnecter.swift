@@ -41,8 +41,6 @@ class SeConnecter: UIViewController {
                 navigationController?.popViewControllerAnimated(true)
                 
                 
-                
-                
             }
                 
             else {
