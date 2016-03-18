@@ -30,6 +30,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qMQ-Br-s4D"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kOn-qV-o5c"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -55,7 +59,7 @@
         <!--Se Connecter-->
         <scene sceneID="DTn-SY-HLW">
             <objects>
-                <viewController title="Se Connecter" id="93q-sD-iAX" sceneMemberID="viewController">
+                <viewController title="Se Connecter" id="93q-sD-iAX" customClass="SeConnecter" customModule="ProjetiOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="noA-vW-aUW"/>
                         <viewControllerLayoutGuide type="bottom" id="gPZ-ab-nFe"/>
@@ -63,9 +67,32 @@
                     <view key="view" contentMode="scaleToFill" id="FrG-DU-jW6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oa6-M4-XCf">
+                                <rect key="frame" x="43" y="158" width="234" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-vm-PLe">
+                                <rect key="frame" x="43" y="299" width="234" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BQn-6w-eRU">
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="PNo-V3-rly">
+                            <connections>
+                                <action selector="testCo:" destination="93q-sD-iAX" id="dA5-r1-xtW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mdp" destination="C1C-vm-PLe" id="R7y-C3-wNF"/>
+                        <outlet property="user" destination="Oa6-M4-XCf" id="fwe-oJ-b4W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cf-2C-9kg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
