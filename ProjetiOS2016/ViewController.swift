@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var tache = ["titi", "toto", "tata", "tutu", "test2"]
     
+    var current = "null"
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,10 @@
 
 import UIKit
 import CoreData
+
+
+
+
 class SeConnecter: UIViewController {
     
     @IBOutlet weak var mdp: UITextField!
