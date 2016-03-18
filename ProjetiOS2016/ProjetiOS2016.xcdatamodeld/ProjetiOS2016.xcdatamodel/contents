@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Message" syncable="YES">
+        <attribute name="idMessage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="idService" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="texteMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usernameDestinataire" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usernameExpediteur" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Note" syncable="YES">
+        <attribute name="commentaireNote" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNote" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="idService" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="usernameNote" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="valeurNote" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Service" syncable="YES">
+        <attribute name="categorieService" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateDebutService" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateFinService" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="descriptionService" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idService" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nomService" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tempsService" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="usernameService" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Utilisateur" syncable="YES">
+        <attribute name="codePostal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Utilisateur" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Service" positionX="-27" positionY="18" width="128" height="165"/>
+        <element name="Note" positionX="0" positionY="45" width="128" height="120"/>
+        <element name="Message" positionX="27" positionY="72" width="128" height="120"/>
+    </elements>
 </model>
