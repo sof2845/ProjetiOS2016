@@ -10,45 +10,101 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SeConnecterDelegate {
 
+ //  var addItem: UIBarButtonItem
     
+    
+    
+  
+    var seCoItem: UIBarButtonItem!
+    var crerCompteItem: UIBarButtonItem!
+    var seDecoItem: UIBarButtonItem!
+    
+
+  //  @IBOutlet weak var leftBar: UIBarButtonItem!
+    
+
+   
     
     var tache = ["titi", "toto", "tata", "tutu", "test2"]
     
-    var current:String = "SS"
-    
-    
+    var current:String = "null"
     @IBOutlet weak var tableView: UITableView!
   
+ 
     
 
-    
-    
-    /*override func prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-    {
-    if ([[segue identifier] isEqualToString:@"monLienDeConnection"])
-    {
-    ViewController2 *vc2 = [segue destinationViewController];
-    vc2.maVariableATransmettre= 1;
-    
+    func addNew(todo: String) {
+      
+        current = todo
+        viewDidLoad()
     }
-    }*/
+    
+    
+    
+    
+  
+    
+ /*   func sayHello() { print("Hello") }
+    
+    var b = UIBarButtonItem(title: "Continue", style: .Plain, target: nil, action:sayHello)
+    */
+    
+    
+     func deconnexion() {
+        
+        print("deconnecion")
+        current = "null"
+        
+        self.navigationItem.leftBarButtonItem = seCoItem
+        self.navigationItem.rightBarButtonItem = crerCompteItem
+        tableView.reloadData()
+        viewDidLoad()
+
+    }
     
     
     override func viewDidLoad() {
-                super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-    }
+       
+        super.viewDidLoad()
+        let mySelector: Selector = "deconnexion"
+        
+      
+        
+       
+        
+    //    var seDecoItem = UIBarButtonItem(title: "Se Deconnecter", style: UIBarButtonItemStyle.Plain , target: nil, action:@selector(self.seDeconnecter:))
+        
+        // garder les bar
+        seCoItem = self.navigationItem.leftBarButtonItem
+        crerCompteItem = self.navigationItem.rightBarButtonItem
+     
+        
+        if(current != "null") {
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
+    let rightNavigationBarItem = UIBarButtonItem(title: "se deconnecter", style: UIBarButtonItemStyle.Plain, target: self, action: mySelector)
+            navigationItem.rightBarButtonItem = rightNavigationBarItem
+            
+        }
+        
+        
+        
+        }
     
+    
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          print(current)
+        
         return tache.count
     }
     
@@ -60,10 +116,12 @@ class ViewController: UIViewController {
         
         return cell!
     }
-/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "allerSeCO" {
             
-            var message = segue.destinationViewController as! SeConnecter
+    let message = segue.destinationViewController as! SeConnecter
+            
+           message.delegate = self
             
          
             
@@ -71,7 +129,7 @@ class ViewController: UIViewController {
             
         }
         
-    }*/
+    }
 
 
 

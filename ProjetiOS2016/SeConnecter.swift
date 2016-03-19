@@ -9,12 +9,17 @@
 import UIKit
 import CoreData
 
-protocol AddToDotodo {
-
-    func addnew(st: String)
 
 
-	}
+protocol SeConnecterDelegate {
+
+
+    func addNew(todo : String)
+
+}
+
+
+
 
 
 class SeConnecter: UIViewController {
@@ -22,19 +27,8 @@ class SeConnecter: UIViewController {
     @IBOutlet weak var mdp: UITextField!
     @IBOutlet weak var user: UITextField!
     
-    var delegate: AddToDotodo!
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "allerSeCO" {
-            
-            var message = segue.destinationViewController as! ViewController
-            
-            message.current = "YOW yow"
-            
-            
-            
-        }
-        
-    }
+    var delegate: SeConnecterDelegate!
+   
     
     
     
@@ -54,6 +48,7 @@ class SeConnecter: UIViewController {
         
         
         
+        
         request.predicate = NSPredicate(format: "username = %@ AND password = %@", argumentArray: [user.text!, mdp.text!])
         
         
@@ -66,10 +61,9 @@ class SeConnecter: UIViewController {
             {
                 
                 let res = results![0] as! NSManagedObject
-                
-                
+             var text = res.valueForKey("username") as? String
              
-                
+            delegate.addNew(text!)
                 
                 
                 
