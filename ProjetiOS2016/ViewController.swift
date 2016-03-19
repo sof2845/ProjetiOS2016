@@ -87,7 +87,9 @@ class ViewController: UIViewController, SeConnecterDelegate {
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItem = nil
     let rightNavigationBarItem = UIBarButtonItem(title: "se deconnecter", style: UIBarButtonItemStyle.Plain, target: self, action: mySelector)
+            let leftItem = UIBarButtonItem(title: "Bonjour" + " " + current, style: UIBarButtonItemStyle.Plain, target: self, action: nil)
             navigationItem.rightBarButtonItem = rightNavigationBarItem
+            navigationItem.leftBarButtonItem = leftItem
             
         }
         
