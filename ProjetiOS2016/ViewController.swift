@@ -118,6 +118,8 @@ class ViewController: UIViewController, SeConnecterDelegate {
         
         return cell!
     }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "allerSeCO" {
             
