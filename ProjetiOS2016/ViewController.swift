@@ -121,21 +121,57 @@ class ViewController: UIViewController, SeConnecterDelegate {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "allerSeCO" {
+        
+        // aller se Connecter Action
+        if ( segue.identifier == "allerSeCO" ) {
             
     let message = segue.destinationViewController as! SeConnecter
             
            message.delegate = self
-            
-         
-            
-            
-            
-        }
+             } // end if aller se Connecter Action
         
-    }
+        // creerServiceAction
+        
+        
+        if ( segue.identifier == "creerServiceAction" ) {
+            
+            let message = segue.destinationViewController as! CreerService
+            
+
+            if( current == "null") {
+            
+            
+                let alertController = UIAlertController(title: "Erreur", message:
+                    "veuillez vous connecter pour créer un service ", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                                   } // end if
+        
+            
+           else if( current != "null" )
+            {                     message.current = current
+                
+            } // enf if
+            
+            
+            
+            }// end if creerServiceAction
+        
+        
+        
+        } // end de la preparation du délégué 
+
+
+
 
 
 
 }
+
+    
+
+
+
+
 

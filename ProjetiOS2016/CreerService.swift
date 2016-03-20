@@ -9,8 +9,21 @@
 import UIKit
 import CoreData
 
-class CreerService: UIViewController {
-
+class CreerService: UIViewController, SeConnecterDelegate {
+    
+    
+    
+    
+    var current = "null"
+    
+    
+    func addNew(todo: String) {
+        
+        current = todo
+        viewDidLoad()
+    }
+    
+ 
     @IBOutlet weak var nomService: UITextField!
     @IBOutlet weak var categorieService: UITextField!
     @IBOutlet weak var descriptionService: UITextView!
@@ -26,6 +39,13 @@ class CreerService: UIViewController {
         utilisateur.setValue(nomService.text, forKey: "nomService")
         utilisateur.setValue(categorieService.text, forKey: "categorieService")
         utilisateur.setValue(descriptionService.text, forKey: "descriptionService")
+        
+     // ajout du username qui créée le service usernameService
+        
+        utilisateur.setValue(current, forKey: "usernameService")
+     
+        
+        
         let dureeService = Int(heureDureeService.text!)! + ((Int(minuteDureeService.text!))! / 60)
         utilisateur.setValue(dureeService, forKey: "tempsService")
         utilisateur.setValue(debutDisponibilite, forKey: "dateDebutService")
@@ -39,7 +59,7 @@ class CreerService: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ print(current)
         // Do any additional setup after loading the view.
     }
 
