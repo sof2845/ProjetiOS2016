@@ -39,6 +39,13 @@ class CreerService: UIViewController, SeConnecterDelegate {
         utilisateur.setValue(categorieService.text, forKey: "categorieService")
         utilisateur.setValue(descriptionService.text, forKey: "descriptionService")
         utilisateur.setValue(Int(heureDureeService.text!), forKey: "tempsService")
+        
+        // ajout du username qui créée le service usernameService
+        
+        utilisateur.setValue(current, forKey: "usernameService")
+        
+        
+
         /*
         A faire : enregistrer également le username de l'utilisateur ayant créer le service
         utilisateur.setValue(debutDisponibilite, forKey: "dateDebutService")
