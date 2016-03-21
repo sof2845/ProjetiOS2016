@@ -65,6 +65,7 @@ class CreerService: UIViewController, SeConnecterDelegate {
         
         do{
             try managedContext.save()
+            navigationController?.popViewControllerAnimated(true)
         }catch{
             print("erreur creation service")
         }

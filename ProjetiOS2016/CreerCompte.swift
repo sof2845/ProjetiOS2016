@@ -69,6 +69,13 @@ class CreerCompte: UIViewController {
             
             
         }
+        else{
+            print("mot de passe différent")
+            let alertController = UIAlertController(title: "Erreur", message:
+                "Les mots de passe sont incorrectes", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

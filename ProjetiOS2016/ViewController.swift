@@ -25,7 +25,8 @@ class ViewController: UIViewController, SeConnecterDelegate {
   //  @IBOutlet weak var leftBar: UIBarButtonItem!
     
 
-   
+    var services = [NSManagedObject]()
+    let fetchRequest = NSFetchRequest(entityName: "Service")
     
     var tache = ["titi", "toto", "tata", "tutu", "test2"]
     
