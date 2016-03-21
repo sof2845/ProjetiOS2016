@@ -27,17 +27,47 @@ class CreerCompte: UIViewController {
             let managedContext = appDelegate.managedObjectContext
             let entity = NSEntityDescription.entityForName("Utilisateur", inManagedObjectContext:managedContext)
             let utilisateur = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
-            utilisateur.setValue(username.text, forKey: "username")
-            utilisateur.setValue(password.text, forKey: "password")
-            utilisateur.setValue(nom.text, forKey: "nom")
-            utilisateur.setValue(prenom.text, forKey: "prenom")
-            utilisateur.setValue(Int(codePostal.text!), forKey: "codePostal")
             
-            do{
-                try managedContext.save()
-            }catch{
-                print("erreur")
+            let request = NSFetchRequest(entityName: "Utilisateur")
+            request.returnsObjectsAsFaults = false;
+            request.predicate = NSPredicate(format: "username = %@", argumentArray: [username.text!])
+            
+            
+            //////
+            
+            do {
+                let results:NSArray? = try managedContext.executeFetchRequest(request)
+                if( results!.count > 0){
+                    print("erreur username indisponible")
+                    let alertController = UIAlertController(title: "Erreur", message:
+                        "Nom d'utilisateur indisponible", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                else{
+                    utilisateur.setValue(username.text, forKey: "username")
+                    utilisateur.setValue(password.text, forKey: "password")
+                    utilisateur.setValue(nom.text, forKey: "nom")
+                    utilisateur.setValue(prenom.text, forKey: "prenom")
+                    utilisateur.setValue(Int(codePostal.text!), forKey: "codePostal")
+                    
+                    do{
+                        try managedContext.save()
+                    }catch{
+                        print("erreur enregistrement utilisateur")
+                    }
+                    navigationController?.popViewControllerAnimated(true)
+                }
+                
+            } catch let error as NSError {
+                // failure
+                print("Fetch failed: \(error.localizedDescription)")
             }
+            
+            //////
+            
+            
+            
         }
     }
     override func viewDidLoad() {

@@ -15,7 +15,6 @@ class CreerService: UIViewController {
     @IBOutlet weak var categorieService: UITextField!
     @IBOutlet weak var descriptionService: UITextView!
     @IBOutlet weak var heureDureeService: UITextField!
-    @IBOutlet weak var minuteDureeService: UITextField!
     @IBOutlet weak var debutDisponibilite: UIDatePicker!
     @IBOutlet weak var finDisponibilite: UIDatePicker!
     @IBAction func creerService(sender: AnyObject) {
@@ -26,16 +25,31 @@ class CreerService: UIViewController {
         utilisateur.setValue(nomService.text, forKey: "nomService")
         utilisateur.setValue(categorieService.text, forKey: "categorieService")
         utilisateur.setValue(descriptionService.text, forKey: "descriptionService")
-        let dureeService = Int(heureDureeService.text!)! + ((Int(minuteDureeService.text!))! / 60)
-        utilisateur.setValue(dureeService, forKey: "tempsService")
+        utilisateur.setValue(Int(heureDureeService.text!), forKey: "tempsService")
+        /*
+        A faire : enregistrer également le username de l'utilisateur ayant créer le service
         utilisateur.setValue(debutDisponibilite, forKey: "dateDebutService")
         utilisateur.setValue(finDisponibilite, forKey: "dateFinService")
+        */
+        
+        var services = [NSManagedObject]()
+        let fetchRequest = NSFetchRequest(entityName: "Service")
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            services = results as! [NSManagedObject]
+            utilisateur.setValue((services.count + 1), forKey: "idService")
+            print(String(services.count))
+        } catch {
+            print("erreur requete")
+        }
         
         do{
             try managedContext.save()
         }catch{
-            print("erreur")
+            print("erreur creation service")
         }
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
