@@ -9,8 +9,21 @@
 import UIKit
 import CoreData
 
-class CreerService: UIViewController {
-
+class CreerService: UIViewController, SeConnecterDelegate {
+    
+    
+    
+    
+    var current = "null"
+    
+    
+    func addNew(todo: String) {
+        
+        current = todo
+        viewDidLoad()
+    }
+    
+ 
     @IBOutlet weak var nomService: UITextField!
     @IBOutlet weak var categorieService: UITextField!
     @IBOutlet weak var descriptionService: UITextView!
@@ -53,7 +66,7 @@ class CreerService: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ print(current)
         // Do any additional setup after loading the view.
     }
 

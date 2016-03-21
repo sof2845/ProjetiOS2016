@@ -8,10 +8,33 @@
 
 import UIKit
 import CoreData
+
+
+
+protocol SeConnecterDelegate {
+
+
+    func addNew(todo : String)
+
+}
+
+
+
+
+
 class SeConnecter: UIViewController {
     
     @IBOutlet weak var mdp: UITextField!
     @IBOutlet weak var user: UITextField!
+    
+    var delegate: SeConnecterDelegate!
+   
+    
+    
+    
+    
+    
+
     
     
     @IBAction func testCo(sender: AnyObject) {
@@ -22,6 +45,7 @@ class SeConnecter: UIViewController {
         let request = NSFetchRequest(entityName: "Utilisateur")
         
         request.returnsObjectsAsFaults = false;
+        
         
         
         
@@ -37,6 +61,11 @@ class SeConnecter: UIViewController {
             {
                 
                 let res = results![0] as! NSManagedObject
+             var text = res.valueForKey("username") as? String
+             
+            delegate.addNew(text!)
+                
+                
                 
                 navigationController?.popViewControllerAnimated(true)
                 
