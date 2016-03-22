@@ -46,11 +46,12 @@ class CreerService: UIViewController, SeConnecterDelegate {
         
         
 
-        /*
-        A faire : enregistrer également le username de l'utilisateur ayant créer le service
-        utilisateur.setValue(debutDisponibilite, forKey: "dateDebutService")
-        utilisateur.setValue(finDisponibilite, forKey: "dateFinService")
+        
+        /*A faire : enregistrer également le username de l'utilisateur ayant créer le service
         */
+        utilisateur.setValue(debutDisponibilite.date, forKey: "dateDebutService")
+        utilisateur.setValue(finDisponibilite.date, forKey: "dateFinService")
+
         
         var services = [NSManagedObject]()
         let fetchRequest = NSFetchRequest(entityName: "Service")
