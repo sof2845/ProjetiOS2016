@@ -164,14 +164,105 @@ class ViewController: UIViewController, SeConnecterDelegate {
         
         } // end de la preparation du délégué 
 
+/*
 
+    
+    //
+    //  ViewController.swift
+    //  TicTacToe
+    //
+    //  Created by tp on 09/02/2016.
+    //  Copyright © 2016 tp. All rights reserved.
+    //
+    
+    import UIKit
+    
+    class ViewController: UIViewController {
+    
+    @IBOutlet weak var monLabel: UILabel!
+    @IBAction func Rejouer(sender: AnyObject) {
+    }
+    var tour = 1
+    var gagnant = false
+    var test = false
+    var tab = [0,0,0,0,0,0,0,0,0];
+    
+    var tab_gagnant = [[0,1,2], [3,4,5]]
+    
+    func estGagant(tourjoueur: Int, tab: [Int]) -> Bool{
+    //print(tab[tab_gagnant[0][0]])
+    //print(tab[tab_gagnant[0][1]])
+    //print(String(tourjoueur))
+    //print(tab[tab_gagnant[0][0]])
+    //print(tab[tab_gagnant[0][1]])
+    //print(tab[tab_gagnant[0][2]])
+    test = false
+    for i in 0...1{
+    
+    if(tab[tab_gagnant[i][0]] == tourjoueur && tab[tab_gagnant[i][1]] == tourjoueur && tab[tab_gagnant[i][2]] == tourjoueur){
+    //print("toto")
+    test = true
+    }
+    
+    }
+    return test
+    }
+    
+    
+    
+    @IBAction func ChoisirCase(sender: AnyObject) {
+    
+    if (tab[sender.tag] == 0 && !estGagant(Int(tour), tab: tab)){
+    //print(estGagant(Int(tour), tab: tab))
+    //print(String(tab[sender.tag]))
+    if (tour == 1){
+    tour = 2
+    sender.setImage(UIImage(named:"hippo.png"), forState: UIControlState.Normal)
+    tab[sender.tag] = tour
+    //tour = 2
+    //gagnant = estGagant(Int(tour), tab: tab)
+    }
+    else{
+    tour = 1
+    sender.setImage(UIImage(named:"Guitare"), forState: UIControlState.Normal)
+    tab[sender.tag] = tour
+    //tour = 1
+    }
+    
+    
+    
+    }
+    gagnant = estGagant(Int(tour), tab: tab)
+    if (gagnant){
+    monLabel.text = "Le joueur " + String(tour) + " a gagné"
+    }
+    
+    
+    }
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+    }
+    
+    
+    }
+    
+
+    
+    
+*/
 
 
 
 
 }
 
-    
+
 
 
 
