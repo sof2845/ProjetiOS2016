@@ -27,7 +27,7 @@ class ViewController: UIViewController, SeConnecterDelegate {
 
    
     
-    var tache = ["sciences", "litterature", "economie", "sport"]
+    var categories = ["Bricolage", "Jardinage", "Mécanique", "Babysitting", "Autres"]
     
     var current:String = "null"
     @IBOutlet weak var tableView: UITableView!
@@ -107,14 +107,14 @@ class ViewController: UIViewController, SeConnecterDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return tache.count
+        return categories.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cellule")
         
-        cell!.textLabel!.text = tache[indexPath.row]
+        cell!.textLabel!.text = categories[indexPath.row]
         
         cell!.tag = indexPath.row
         
