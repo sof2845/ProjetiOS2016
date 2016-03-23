@@ -17,12 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a92-bx-ahj">
+                                <rect key="frame" x="0.0" y="427" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem tag="1" systemItem="add" id="k45-kE-yE3">
+                                        <connections>
+                                            <segue destination="cXb-tq-9DB" kind="show" identifier="creerServiceAction" id="Fh4-BG-4yv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hQf-JT-Yqk">
                                 <rect key="frame" x="10" y="72" width="301" height="355"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellule" textLabel="VPo-0S-twk" detailTextLabel="lMG-yY-4qA" style="IBUITableViewCellStyleValue1" id="BNT-jl-pw2">
-                                        <rect key="frame" x="0.0" y="92" width="301" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="301" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BNT-jl-pw2" id="gJZ-p6-arE">
                                             <rect key="frame" x="0.0" y="0.0" width="301" height="43"/>
@@ -51,16 +61,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kOn-qV-o5c"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a92-bx-ahj">
-                                <rect key="frame" x="0.0" y="427" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem tag="1" systemItem="add" id="k45-kE-yE3">
-                                        <connections>
-                                            <segue destination="cXb-tq-9DB" kind="show" identifier="creerServiceAction" id="Fh4-BG-4yv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -86,6 +86,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1307" y="171"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9kd-Xi-Ihv">
+            <objects>
+                <viewController id="hfM-xV-ldy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g3Q-f8-rA4"/>
+                        <viewControllerLayoutGuide type="bottom" id="T1u-C6-D1r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJW-O1-2B3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbU-1C-OK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="1006"/>
         </scene>
         <!--Se Connecter-->
         <scene sceneID="DTn-SY-HLW">
@@ -237,17 +256,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="usP-5J-Cpi">
-                                <rect key="frame" x="12" y="178" width="297" height="103"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Catégorie du service" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ovg-Jw-PfF">
-                                <rect key="frame" x="11" y="129" width="297" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-Yo-fi0">
                                 <rect key="frame" x="111" y="484" width="99" height="30"/>
                                 <state key="normal" title="Créer service"/>
@@ -260,13 +268,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9P1-qU-x9Y">
+                                <rect key="frame" x="11" y="118" width="297" height="83"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cXb-tq-9DB" id="Bi8-Qr-2Bi"/>
+                                    <outlet property="delegate" destination="cXb-tq-9DB" id="jzW-GR-XnJ"/>
+                                </connections>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="usP-5J-Cpi">
+                                <rect key="frame" x="12" y="209" width="297" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="categorieService" destination="Ovg-Jw-PfF" id="c0f-Uq-fBX"/>
+                        <outlet property="categorieService" destination="9P1-qU-x9Y" id="BDz-rC-8we"/>
                         <outlet property="debutDisponibilite" destination="4nT-2a-7Wn" id="jQh-4s-D85"/>
                         <outlet property="descriptionService" destination="usP-5J-Cpi" id="1an-Jh-EO8"/>
                         <outlet property="finDisponibilite" destination="xPm-aR-PCn" id="Tt0-pi-wsR"/>

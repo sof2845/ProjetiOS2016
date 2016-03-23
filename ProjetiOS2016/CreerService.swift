@@ -23,9 +23,11 @@ class CreerService: UIViewController, SeConnecterDelegate {
         viewDidLoad()
     }
     
+    var categories = ["Bricolage", "Jardinage", "Mécanique", "Babysitting", "Autres"]
+    
  
     @IBOutlet weak var nomService: UITextField!
-    @IBOutlet weak var categorieService: UITextField!
+    @IBOutlet weak var categorieService: UIPickerView!
     @IBOutlet weak var descriptionService: UITextView!
     @IBOutlet weak var heureDureeService: UITextField!
     @IBOutlet weak var debutDisponibilite: UIDatePicker!
@@ -36,7 +38,7 @@ class CreerService: UIViewController, SeConnecterDelegate {
         let entity = NSEntityDescription.entityForName("Service", inManagedObjectContext:managedContext)
         let utilisateur = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
         utilisateur.setValue(nomService.text, forKey: "nomService")
-        utilisateur.setValue(categorieService.text, forKey: "categorieService")
+        utilisateur.setValue(categories[categorieService.selectedRowInComponent(0)], forKey: "categorieService")
         utilisateur.setValue(descriptionService.text, forKey: "descriptionService")
         utilisateur.setValue(Int(heureDureeService.text!), forKey: "tempsService")
         
@@ -51,6 +53,7 @@ class CreerService: UIViewController, SeConnecterDelegate {
         */
         utilisateur.setValue(debutDisponibilite.date, forKey: "dateDebutService")
         utilisateur.setValue(finDisponibilite.date, forKey: "dateFinService")
+        print(debutDisponibilite.date)
 
         
         var services = [NSManagedObject]()
@@ -82,6 +85,18 @@ class CreerService: UIViewController, SeConnecterDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return categories[row]
     }
     
 

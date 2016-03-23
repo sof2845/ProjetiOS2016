@@ -27,7 +27,7 @@ class ViewController: UIViewController, SeConnecterDelegate {
 
    
     
-    var tache = ["titi", "toto", "tata", "tutu", "test2"]
+    var tache = ["sciences", "litterature", "economie", "sport"]
     
     var current:String = "null"
     @IBOutlet weak var tableView: UITableView!
@@ -115,6 +115,8 @@ class ViewController: UIViewController, SeConnecterDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellule")
         
         cell!.textLabel!.text = tache[indexPath.row]
+        
+        cell!.tag = indexPath.row
         
         return cell!
     }
