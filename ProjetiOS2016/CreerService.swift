@@ -9,9 +9,23 @@
 import UIKit
 import CoreData
 
+
+
+
+
+protocol creerServiceDelegate {
+    
+    
+    func addNewService(todo : String)
+    
+}
+
+
+
+
 class CreerService: UIViewController, SeConnecterDelegate {
     
-    
+    var delegeService: creerServiceDelegate!
     
     
     var current = "null"
@@ -63,6 +77,10 @@ class CreerService: UIViewController, SeConnecterDelegate {
             services = results as! [NSManagedObject]
             utilisateur.setValue((services.count + 1), forKey: "idService")
             print(String(services.count))
+            
+            // le delege
+            delegeService.addNewService(current)
+            
         } catch {
             print("erreur requete")
         }

@@ -16,6 +16,7 @@
 		F28F40B81C9BF18F003B54F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28F40B71C9BF18F003B54F3 /* Assets.xcassets */; };
 		F28F40BB1C9BF18F003B54F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28F40B91C9BF18F003B54F3 /* LaunchScreen.storyboard */; };
 		F2C074201CA2E23B00E51157 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0741F1CA2E23B00E51157 /* Conversation.swift */; };
+		F2D396191CA8B00200D68A9A /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D396181CA8B00200D68A9A /* DetailController.swift */; };
 		F2F94C0F1C9C3F2500E49F20 /* CreerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		F28F40BA1C9BF18F003B54F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F28F40BC1C9BF18F003B54F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2C0741F1CA2E23B00E51157 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		F2D396181CA8B00200D68A9A /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				F28F40B91C9BF18F003B54F3 /* LaunchScreen.storyboard */,
 				F28F40BC1C9BF18F003B54F3 /* Info.plist */,
 				F28F40B41C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld */,
+				F2D396181CA8B00200D68A9A /* DetailController.swift */,
 			);
 			path = ProjetiOS2016;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D396191CA8B00200D68A9A /* DetailController.swift in Sources */,
 				F28F40B01C9BF18F003B54F3 /* ViewController.swift in Sources */,
 				F246011A1C9C06A30068E5DB /* CreerCompte.swift in Sources */,
 				F28F40B61C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld in Sources */,

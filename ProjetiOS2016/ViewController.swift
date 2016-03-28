@@ -10,12 +10,12 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController, SeConnecterDelegate {
+class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegate {
 
  //  var addItem: UIBarButtonItem
     
     
-    
+    var resultats:NSArray = []
   
     var seCoItem: UIBarButtonItem!
     var crerCompteItem: UIBarButtonItem!
@@ -24,7 +24,29 @@ class ViewController: UIViewController, SeConnecterDelegate {
 
   //  @IBOutlet weak var leftBar: UIBarButtonItem!
     
+    
+    func getData() {
+        let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        
+        let   context:NSManagedObjectContext = apDel.managedObjectContext
+        
+        let request = NSFetchRequest(entityName: "Service")
+        
+        request.returnsObjectsAsFaults = false;
 
+        
+        
+        do {
+            resultats = try context.executeFetchRequest(request)
+            print("récupérer les résultats")
+                    } catch let error as NSError {
+            // failure
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        
+   
+        
+    }
    
     
     var categories = ["Bricolage", "Jardinage", "Mécanique", "Babysitting", "Autres"]
@@ -33,7 +55,10 @@ class ViewController: UIViewController, SeConnecterDelegate {
     @IBOutlet weak var tableView: UITableView!
   
  
+   func addNewService(todo : String){
+    viewDidLoad()
     
+    }
 
     func addNew(todo: String) {
       
@@ -72,7 +97,7 @@ class ViewController: UIViewController, SeConnecterDelegate {
         let mySelector: Selector = "deconnexion"
         
       
-        
+        getData()
        
         
     //    var seDecoItem = UIBarButtonItem(title: "Se Deconnecter", style: UIBarButtonItemStyle.Plain , target: nil, action:@selector(self.seDeconnecter:))
@@ -93,7 +118,7 @@ class ViewController: UIViewController, SeConnecterDelegate {
             
         }
         
-        
+        tableView.reloadData()
         
         }
     
@@ -107,16 +132,20 @@ class ViewController: UIViewController, SeConnecterDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return categories.count
+        return resultats.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
+        print("test")
         let cell = tableView.dequeueReusableCellWithIdentifier("cellule")
         
-        cell!.textLabel!.text = categories[indexPath.row]
+        let res = resultats[indexPath.row] as! NSManagedObject
+        var text = res.valueForKey("categorieService") as? String
         
-        cell!.tag = indexPath.row
+      print(text)
+        cell!.textLabel!.text = text
+            
+            cell!.tag = indexPath.row
         
         return cell!
     }
@@ -159,104 +188,49 @@ class ViewController: UIViewController, SeConnecterDelegate {
             
             
             }// end if creerServiceAction
+        // creerServiceAction
+        
+        if ( segue.identifier == "creerServiceAction" ) {
+            
+            let message = segue.destinationViewController as! CreerService
+            
+            message.delegeService = self
+        }
+        // showDetailsAction
         
         
+        if ( segue.identifier == "showDetailsAction" ) {
+            
+            let message = segue.destinationViewController as! DetailController
+       
+          
+            if let indexPath =    self.tableView.indexPathForSelectedRow?.row {
+           
+            message.service = resultats[indexPath] as? NSManagedObject
+            
+            }
+        /*    if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
+            
+         //   message.service = resultats[indexPath.row] as! NSManagedObject
+            message.service = "test"
+            }*/
+            
+            
+        }
         
         } // end de la preparation du délégué 
 
-/*
-
+    func detailIndexPath(indexPath: NSIndexPath) -> NSManagedObject {
     
-    //
-    //  ViewController.swift
-    //  TicTacToe
-    //
-    //  Created by tp on 09/02/2016.
-    //  Copyright © 2016 tp. All rights reserved.
-    //
-    
-    import UIKit
-    
-    class ViewController: UIViewController {
-    
-    @IBOutlet weak var monLabel: UILabel!
-    @IBAction func Rejouer(sender: AnyObject) {
-    }
-    var tour = 1
-    var gagnant = false
-    var test = false
-    var tab = [0,0,0,0,0,0,0,0,0];
-    
-    var tab_gagnant = [[0,1,2], [3,4,5]]
-    
-    func estGagant(tourjoueur: Int, tab: [Int]) -> Bool{
-    //print(tab[tab_gagnant[0][0]])
-    //print(tab[tab_gagnant[0][1]])
-    //print(String(tourjoueur))
-    //print(tab[tab_gagnant[0][0]])
-    //print(tab[tab_gagnant[0][1]])
-    //print(tab[tab_gagnant[0][2]])
-    test = false
-    for i in 0...1{
-    
-    if(tab[tab_gagnant[i][0]] == tourjoueur && tab[tab_gagnant[i][1]] == tourjoueur && tab[tab_gagnant[i][2]] == tourjoueur){
-    //print("toto")
-    test = true
-    }
+     //   var service = resultats[indexPath.section]
+        
+     //   return service.resultats[indexPath.row] as! NSManagedObject
+      //  return resultats[indexPath.row] as! NSManagedObject
+         let res = resultats[indexPath.row] as! NSManagedObject
+        return res
+        
     
     }
-    return test
-    }
-    
-    
-    
-    @IBAction func ChoisirCase(sender: AnyObject) {
-    
-    if (tab[sender.tag] == 0 && !estGagant(Int(tour), tab: tab)){
-    //print(estGagant(Int(tour), tab: tab))
-    //print(String(tab[sender.tag]))
-    if (tour == 1){
-    tour = 2
-    sender.setImage(UIImage(named:"hippo.png"), forState: UIControlState.Normal)
-    tab[sender.tag] = tour
-    //tour = 2
-    //gagnant = estGagant(Int(tour), tab: tab)
-    }
-    else{
-    tour = 1
-    sender.setImage(UIImage(named:"Guitare"), forState: UIControlState.Normal)
-    tab[sender.tag] = tour
-    //tour = 1
-    }
-    
-    
-    
-    }
-    gagnant = estGagant(Int(tour), tab: tab)
-    if (gagnant){
-    monLabel.text = "Le joueur " + String(tour) + " a gagné"
-    }
-    
-    
-    }
-    override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-    }
-    
-    
-    }
-    
-
-    
-    
-*/
-
 
 
 
