@@ -13,7 +13,8 @@ class DetailController: UIViewController {
     
     var service:NSManagedObject?
    
-    
+    var current = ""
+    var createurService = ""
     @IBOutlet weak var proprio: UILabel!
     
 
@@ -26,7 +27,7 @@ class DetailController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createurService = (service!.valueForKey("usernameService") as? String)!
         
         detail.text = service!.valueForKey("nomService") as? String
         
@@ -48,15 +49,19 @@ class DetailController: UIViewController {
         super.didReceiveMemoryWarning()
            }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
+        // aller se Connecter Action
+        if ( segue.identifier == "contacter" ) {
+            
+            let message = segue.destinationViewController as! Conversation
+            message.current = current
+            message.createurService = createurService
+        } // end if aller se Connecter Action
+        
+        
+    } // end de la preparation du délégué
+    
 
 }

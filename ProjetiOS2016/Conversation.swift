@@ -12,6 +12,10 @@ import CoreData
 
 class Conversation: UIViewController {
     
+    
+    var current = "null"
+    var createurService = ""
+    
     @IBAction func envoyerMessage(sender: AnyObject) {
     }
     
@@ -26,9 +30,9 @@ class Conversation: UIViewController {
         let request = NSFetchRequest(entityName: "Message")
         
         request.returnsObjectsAsFaults = false;
-        
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current.text!, createurservice.text!])
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurservice.text!, current.text!])
+     
+     //   request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current.text!, createurservice.text!])
+      //  request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurservice.text!, current.text!])
         
         
         do {
@@ -44,7 +48,14 @@ class Conversation: UIViewController {
     }
 
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
+        
+        print(current)
+        print(createurService)
+        
         getData()
 
         // Do any additional setup after loading the view.
