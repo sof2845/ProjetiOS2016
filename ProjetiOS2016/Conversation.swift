@@ -30,10 +30,10 @@ class Conversation: UIViewController {
         let request = NSFetchRequest(entityName: "Message")
         
         request.returnsObjectsAsFaults = false;
-        /*
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current.text!, createurservice.text!])
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurservice.text!, current.text!])
-        */
+        
+        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current, createurService])
+        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurService, current])
+        
         
         do {
             resultats = try context.executeFetchRequest(request)
