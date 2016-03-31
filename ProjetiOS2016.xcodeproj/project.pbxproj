@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20FA7FA1CADA0B500288570 /* Cellule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20FA7F91CADA0B500288570 /* Cellule.swift */; };
 		F231DEBC1C9C0BDE00D39E7B /* SeConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */; };
 		F246011A1C9C06A30068E5DB /* CreerCompte.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24601191C9C06A30068E5DB /* CreerCompte.swift */; };
 		F28F40AE1C9BF18F003B54F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F40AD1C9BF18F003B54F3 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20FA7F91CADA0B500288570 /* Cellule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cellule.swift; sourceTree = "<group>"; };
 		F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeConnecter.swift; sourceTree = "<group>"; };
 		F24601191C9C06A30068E5DB /* CreerCompte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerCompte.swift; sourceTree = "<group>"; };
 		F28F40AA1C9BF18F003B54F3 /* ProjetiOS2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetiOS2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				F28F40AF1C9BF18F003B54F3 /* ViewController.swift */,
 				F28F40B11C9BF18F003B54F3 /* Main.storyboard */,
 				F2C0741F1CA2E23B00E51157 /* Conversation.swift */,
+				F20FA7F91CADA0B500288570 /* Cellule.swift */,
 				F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */,
 				F24601191C9C06A30068E5DB /* CreerCompte.swift */,
 				F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */,
@@ -156,6 +159,7 @@
 				F2D396191CA8B00200D68A9A /* DetailController.swift in Sources */,
 				F28F40B01C9BF18F003B54F3 /* ViewController.swift in Sources */,
 				F246011A1C9C06A30068E5DB /* CreerCompte.swift in Sources */,
+				F20FA7FA1CADA0B500288570 /* Cellule.swift in Sources */,
 				F28F40B61C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld in Sources */,
 				F2F94C0F1C9C3F2500E49F20 /* CreerService.swift in Sources */,
 				F2C074201CA2E23B00E51157 /* Conversation.swift in Sources */,

@@ -66,6 +66,7 @@ class CreerService: UIViewController, SeConnecterDelegate {
         /*A faire : enregistrer également le username de l'utilisateur ayant créer le service
         */
         utilisateur.setValue(debutDisponibilite.date, forKey: "dateDebutService")
+        print(debutDisponibilite)
         utilisateur.setValue(finDisponibilite.date, forKey: "dateFinService")
         print(debutDisponibilite.date)
 
