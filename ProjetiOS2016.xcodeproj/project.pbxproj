@@ -75,12 +75,12 @@
 				F20FA7F91CADA0B500288570 /* Cellule.swift */,
 				F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */,
 				F24601191C9C06A30068E5DB /* CreerCompte.swift */,
+				F2D396181CA8B00200D68A9A /* DetailController.swift */,
 				F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */,
 				F28F40B71C9BF18F003B54F3 /* Assets.xcassets */,
 				F28F40B91C9BF18F003B54F3 /* LaunchScreen.storyboard */,
 				F28F40BC1C9BF18F003B54F3 /* Info.plist */,
 				F28F40B41C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld */,
-				F2D396181CA8B00200D68A9A /* DetailController.swift */,
 			);
 			path = ProjetiOS2016;
 			sourceTree = "<group>";

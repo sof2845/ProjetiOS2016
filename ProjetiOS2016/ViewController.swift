@@ -202,11 +202,12 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
         if ( segue.identifier == "showDetailsAction" ) {
             
             let message = segue.destinationViewController as! DetailController
-       
+             let message1 = segue.destinationViewController as! DetailController
           
             if let indexPath =    self.tableView.indexPathForSelectedRow?.row {
            
             message.service = resultats[indexPath] as? NSManagedObject
+            message1.current = current
             
             }
         /*    if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {

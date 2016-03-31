@@ -12,6 +12,10 @@ import CoreData
 
 class Conversation: UIViewController {
     
+    
+    var current = "null"
+    var createurService = ""
+    
     @IBAction func envoyerMessage(sender: AnyObject) {
     }
     
@@ -44,7 +48,14 @@ class Conversation: UIViewController {
     }
 
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
+        
+        print(current)
+        print(createurService)
+        
         getData()
 
         // Do any additional setup after loading the view.
