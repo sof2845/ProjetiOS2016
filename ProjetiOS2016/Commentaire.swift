@@ -21,9 +21,9 @@ class Commentaire: UIViewController {
         let entity = NSEntityDescription.entityForName("Note", inManagedObjectContext:managedContext)
         let monCommentaire = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
         monCommentaire.setValue(texteCommentaire.text, forKey: "commentaireNote")
-        monCommentaire.setValue(noteCommentaire.text, forKey: "valeurNote")
+        monCommentaire.setValue(Int(noteCommentaire.text!), forKey: "valeurNote")
         monCommentaire.setValue(current, forKey: "usernameNote")
-        monCommentaire.setValue(idService, forKey: "idService")
+        monCommentaire.setValue(Int(idService), forKey: "idService")
         
         var commentaires = [NSManagedObject]()
         let fetchRequest = NSFetchRequest(entityName: "Note")
@@ -95,14 +95,15 @@ class Commentaire: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         print("test")
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! Cellule
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! CellCommentaire
         
         let res = resultats[indexPath.row] as! NSManagedObject
-        let message = res.valueForKey("texteMessage") as? String
-        cell.message.text = message
-        let expediteur = res.valueForKey("usernameExpediteur") as? String
-        cell.expediteur.text = expediteur
-        
+        let message = res.valueForKey("commentaireNote") as? String
+        cell.texteCommentaire.text = message
+        let note = res.valueForKey("valeurNote") as? Int
+        cell.note.text = String(note)
+        let user = res.valueForKey("usernameNote") as? String
+        cell.userCommentaire.text = user
         return cell
     }
     

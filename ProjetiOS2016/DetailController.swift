@@ -15,6 +15,7 @@ class DetailController: UIViewController {
    
     var current = ""
     var createurService = ""
+    var idService = 1
     @IBOutlet weak var proprio: UILabel!
     
 
@@ -28,6 +29,7 @@ class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createurService = (service!.valueForKey("usernameService") as? String)!
+        idService = (service!.valueForKey("idService") as? Int)!
         
         detail.text = service!.valueForKey("nomService") as? String
         
@@ -59,7 +61,12 @@ class DetailController: UIViewController {
             message.current = current
             message.createurService = createurService
         } // end if aller se Connecter Action
-        
+        if ( segue.identifier == "commenter" ) {
+            
+            let message = segue.destinationViewController as! Commentaire
+            message.current = current
+            message.idService = String(idService)
+        }
         
     } // end de la preparation du délégué
     

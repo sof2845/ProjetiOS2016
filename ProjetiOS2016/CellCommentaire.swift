@@ -10,6 +10,7 @@ import UIKit
 
 class CellCommentaire: UITableViewCell {
 
+    @IBOutlet weak var userCommentaire: UILabel!
     @IBOutlet weak var note: UILabel!
     @IBOutlet weak var texteCommentaire: UILabel!
     override func awakeFromNib() {
