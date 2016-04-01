@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20245EB1CAEC38D00BBC4C4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20245EA1CAEC38D00BBC4C4 /* CoreLocation.framework */; };
 		F20FA7FA1CADA0B500288570 /* Cellule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20FA7F91CADA0B500288570 /* Cellule.swift */; };
 		F231DEBC1C9C0BDE00D39E7B /* SeConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */; };
 		F246011A1C9C06A30068E5DB /* CreerCompte.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24601191C9C06A30068E5DB /* CreerCompte.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20245EA1CAEC38D00BBC4C4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F20FA7F91CADA0B500288570 /* Cellule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cellule.swift; sourceTree = "<group>"; };
 		F231DEBB1C9C0BDE00D39E7B /* SeConnecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeConnecter.swift; sourceTree = "<group>"; };
 		F24601191C9C06A30068E5DB /* CreerCompte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerCompte.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20245EB1CAEC38D00BBC4C4 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +63,7 @@
 		F28F40A11C9BF18E003B54F3 = {
 			isa = PBXGroup;
 			children = (
+				F20245EA1CAEC38D00BBC4C4 /* CoreLocation.framework */,
 				F28F40AC1C9BF18F003B54F3 /* ProjetiOS2016 */,
 				F28F40AB1C9BF18F003B54F3 /* Products */,
 			);
