@@ -10,20 +10,22 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegate {
+class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegate, UISearchBarDelegate {
 
  //  var addItem: UIBarButtonItem
     
     
+    @IBOutlet weak var mySearchBAr: UISearchBar!
+    var is_searching:Bool!
     var resultats:NSArray = []
+    var searchingDataArray:NSArray = []
   
     var seCoItem: UIBarButtonItem!
     var crerCompteItem: UIBarButtonItem!
     var seDecoItem: UIBarButtonItem!
     
-
-  //  @IBOutlet weak var leftBar: UIBarButtonItem!
-    
+    var res:NSManagedObject!
+ 
     
     func getData() {
         let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
@@ -137,13 +139,16 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         print("test")
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellule")
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as? TableCellControler
         
-        let res = resultats[indexPath.row] as! NSManagedObject
+         res = resultats[indexPath.row] as! NSManagedObject
         var text = res.valueForKey("categorieService") as? String
         
       print(text)
-        cell!.textLabel!.text = text
+        
+        cell?.nomService.text = res.valueForKey("nomService") as? String
+        
+       cell?.categorieService.text = text
             
             cell!.tag = indexPath.row
         
@@ -232,6 +237,53 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
         
     
     }
+    
+    
+    
+    func getDataSearch(search: String) {
+        let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        
+        let   context:NSManagedObjectContext = apDel.managedObjectContext
+        
+        let request = NSFetchRequest(entityName: "Service")
+        
+        request.returnsObjectsAsFaults = false;
+        request.predicate = NSPredicate(format: "categorieService contains[c] %@", search)
+        
+         request.predicate = NSPredicate(format: "nomService contains[c] %@", search)
+        do {
+            resultats = try context.executeFetchRequest(request)
+            print("récupérer les résultats")
+        } catch let error as NSError {
+            // failure
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        
+        
+        
+    }
+    
+    
+    
+    func searchBar(mySearchBAr: UISearchBar, textDidChange searchText: String){
+        if mySearchBAr.text!.isEmpty{
+            is_searching = false
+            viewDidLoad()
+            tableView.reloadData()
+        } else {
+            print(mySearchBAr.text)
+            getDataSearch(mySearchBAr.text!)
+          
+            }
+            tableView.reloadData()
+        }
+    
+    
+  
+    
+    
+    
+    
 
 
 
