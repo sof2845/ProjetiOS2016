@@ -12,6 +12,7 @@ import CoreData
 
 class Conversation: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     
     var current = "null"
     var createurService = ""
@@ -50,22 +51,23 @@ class Conversation: UIViewController {
     
     @IBOutlet weak var message: UITextField!
     var resultats:NSArray = []
-    
+      var resultats1:NSArray = []
     func getData() {
         let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         
         let context:NSManagedObjectContext = apDel.managedObjectContext
         
         let request = NSFetchRequest(entityName: "Message")
-        
+      
         request.returnsObjectsAsFaults = false;
         
         request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current, createurService])
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurService, current])
+      
         
         
         do {
             resultats = try context.executeFetchRequest(request)
+           
             print("récupérer les résultats")
         } catch{
             // failure
@@ -85,7 +87,10 @@ class Conversation: UIViewController {
         print(current)
         print(createurService)
         
+        
+      
         getData()
+        tableView.reloadData()
 
         // Do any additional setup after loading the view.
     }

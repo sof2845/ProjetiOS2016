@@ -51,7 +51,7 @@ class MesMessages: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultats.count
 
@@ -79,9 +79,11 @@ class MesMessages: UIViewController {
             
             if let indexPath = self.tableView.indexPathForSelectedRow?.row {
                 let  res = resultats[indexPath] as! NSManagedObject
-                let text = res.valueForKey("usernameExpediteur") as? String
-                 message.createurService = text!
-                message.current = current
+                let texte = res.valueForKey("usernameExpediteur") as? String
+                 message.createurService = current
+                print("rr current" + current)
+                 print("rr crateur" + texte!)
+                message.current = texte!
 
             }
     
@@ -96,6 +98,23 @@ class MesMessages: UIViewController {
     
     
     /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    // aller se Connecter Action
+    if ( segue.identifier == "contacter" ) {
+    
+    let message = segue.destinationViewController as! Conversation
+    message.current = current
+    message.createurService = createurService
+    } // end if aller se Connecter Action
+    if ( segue.identifier == "commenter" ) {
+    
+    let message = segue.destinationViewController as! Commentaire
+    message.current = current
+    message.idService = String(idService)
+    }
+    
+    }
     */
     
     
