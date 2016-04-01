@@ -19,6 +19,7 @@
 		F2C074201CA2E23B00E51157 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0741F1CA2E23B00E51157 /* Conversation.swift */; };
 		F2D396191CA8B00200D68A9A /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D396181CA8B00200D68A9A /* DetailController.swift */; };
 		F2F94C0F1C9C3F2500E49F20 /* CreerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */; };
+		F2FA9F001CADF5C80094685C /* TableCellControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA9EFF1CADF5C80094685C /* TableCellControler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F2C0741F1CA2E23B00E51157 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		F2D396181CA8B00200D68A9A /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		F2F94C0E1C9C3F2500E49F20 /* CreerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreerService.swift; sourceTree = "<group>"; };
+		F2FA9EFF1CADF5C80094685C /* TableCellControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellControler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				F28F40B91C9BF18F003B54F3 /* LaunchScreen.storyboard */,
 				F28F40BC1C9BF18F003B54F3 /* Info.plist */,
 				F28F40B41C9BF18F003B54F3 /* ProjetiOS2016.xcdatamodeld */,
+				F2FA9EFF1CADF5C80094685C /* TableCellControler.swift */,
 			);
 			path = ProjetiOS2016;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				F2C074201CA2E23B00E51157 /* Conversation.swift in Sources */,
 				F231DEBC1C9C0BDE00D39E7B /* SeConnecter.swift in Sources */,
 				F28F40AE1C9BF18F003B54F3 /* AppDelegate.swift in Sources */,
+				F2FA9F001CADF5C80094685C /* TableCellControler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
