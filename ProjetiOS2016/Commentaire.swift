@@ -100,9 +100,9 @@ class Commentaire: UIViewController {
         let res = resultats[indexPath.row] as! NSManagedObject
         let message = res.valueForKey("commentaireNote") as? String
         cell.texteCommentaire.text = message
-        let note = res.valueForKey("valeurNote") as? Int
+        let note = res.valueForKey("valeurNote") as! Int
         cell.note.text = String(note)
-        let user = res.valueForKey("usernameNote") as? String
+        let user = res.valueForKey("usernameNote") as! String
         cell.userCommentaire.text = user
         return cell
     }
