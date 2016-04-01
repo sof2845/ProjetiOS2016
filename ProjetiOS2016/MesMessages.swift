@@ -8,11 +8,42 @@
 
 import UIKit
 
+import CoreData
+
 class MesMessages: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var resultats:NSArray = []
+    var current = "null"
+    func getData() {
+        let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        
+        let   context:NSManagedObjectContext = apDel.managedObjectContext
+        
+        let request = NSFetchRequest(entityName: "Message")
+        
+        request.returnsObjectsAsFaults = false;
+        
+        
+        request.predicate = NSPredicate(format: "usernameDestinataire = %@",current )
+        
+        do {
+            resultats = try context.executeFetchRequest(request)
+            print("récupérer les résultats")
+        } catch let error as NSError {
+            // failure
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+          getData()
+        print(current)
         // Do any additional setup after loading the view.
     }
 
@@ -20,26 +51,75 @@ class MesMessages: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return resultats.count
+
+    //    return resultats.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         print("test")
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! MessageCellCont
         
-        let res = resultats[indexPath.row] as! NSManagedObject
-        let message = res.valueForKey("commentaireNote") as? String
-        cell.texteCommentaire.text = message
-        let note = res.valueForKey("valeurNote") as! Int
-        cell.note.text = String(note)
-        let user = res.valueForKey("usernameNote") as! String
-        cell.userCommentaire.text = user
+      let  res = resultats[indexPath.row] as! NSManagedObject
+        let text = res.valueForKey("usernameExpediteur") as? String
+        cell.userNameExp.text = text!
         return cell
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+        if ( segue.identifier == "detailConver" ) {
+            
+            let message = segue.destinationViewController as! Conversation
+           //let message1 = segue.destinationViewController as! Conversation
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow?.row {
+                let  res = resultats[indexPath] as! NSManagedObject
+                let texte = res.valueForKey("usernameExpediteur") as? String
+                 message.createurService = current
+                print("rr current" + current)
+                 print("rr crateur" + texte!)
+                message.current = texte!
+
+            }
+    
+    
+    }
+        
+    }
+    
+    
+    
+    
+    
+    
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    // aller se Connecter Action
+    if ( segue.identifier == "contacter" ) {
+    
+    let message = segue.destinationViewController as! Conversation
+    message.current = current
+    message.createurService = createurService
+    } // end if aller se Connecter Action
+    if ( segue.identifier == "commenter" ) {
+    
+    let message = segue.destinationViewController as! Commentaire
+    message.current = current
+    message.idService = String(idService)
+    }
+    
+    }
     */
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
