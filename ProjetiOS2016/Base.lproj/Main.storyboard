@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -292,12 +293,20 @@ CQ
                             <constraint firstItem="6W9-15-NHl" firstAttribute="top" secondItem="IqQ-9a-Ion" secondAttribute="bottom" constant="8" id="zWD-SN-40t"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="2DU-lG-Hu2">
-                        <barButtonItem key="rightBarButtonItem" title="Contacter" id="1dk-9z-mx1">
-                            <connections>
-                                <segue destination="hfM-xV-ldy" kind="show" identifier="contacter" id="mhb-St-yH6"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Contacter" id="1dk-9z-mx1">
+                                <connections>
+                                    <segue destination="hfM-xV-ldy" kind="show" identifier="contacter" id="mhb-St-yH6"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Voir sur la carte" id="cfl-jp-qaF">
+                                <connections>
+                                    <segue destination="CK3-ah-KdQ" kind="show" identifier="Map" id="0CQ-PV-GNe"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -311,7 +320,7 @@ CQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPL-KI-4kQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189" y="-63"/>
+            <point key="canvasLocation" x="1189" y="-79"/>
         </scene>
         <!--Commentaire-->
         <scene sceneID="dcL-px-6mn">
@@ -403,6 +412,33 @@ CQ
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sY-de-oYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1568" y="-63"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="hxR-fW-xh0">
+            <objects>
+                <viewController title="Map" id="CK3-ah-KdQ" customClass="Map" customModule="ProjetiOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4uS-vK-nTc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vjj-hx-PuE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfo-VU-MXB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jkb-vH-cJq">
+                                <rect key="frame" x="20" y="72" width="280" height="444"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="maMap" destination="jkb-vH-cJq" id="rGj-3W-Okh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sz1-ae-W0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1577" y="-719"/>
         </scene>
         <!--Conversation-->
         <scene sceneID="9kd-Xi-Ihv">

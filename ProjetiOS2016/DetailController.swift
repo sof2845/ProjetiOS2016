@@ -67,6 +67,12 @@ class DetailController: UIViewController {
             message.current = current
             message.idService = String(idService)
         }
+        if ( segue.identifier == "Map" ) {
+            let message = segue.destinationViewController as! Map
+            message.createurService = createurService
+            
+            
+        }
         
     } // end de la preparation du délégué
     
