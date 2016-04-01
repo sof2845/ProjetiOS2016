@@ -53,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20245EB1CAEC38D00BBC4C4 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +63,7 @@
 		F28F40A11C9BF18E003B54F3 = {
 			isa = PBXGroup;
 			children = (
+				F20245EA1CAEC38D00BBC4C4 /* CoreLocation.framework */,
 				F28F40AC1C9BF18F003B54F3 /* ProjetiOS2016 */,
 				F28F40AB1C9BF18F003B54F3 /* Products */,
 			);

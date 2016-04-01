@@ -25,7 +25,8 @@
         <attribute name="usernameService" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Utilisateur" syncable="YES">
-        <attribute name="codePostal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitudeUtilisateur" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitudeUtilisateur" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,6 +36,6 @@
         <element name="Message" positionX="27" positionY="72" width="128" height="120"/>
         <element name="Note" positionX="0" positionY="45" width="128" height="120"/>
         <element name="Service" positionX="-27" positionY="18" width="128" height="165"/>
-        <element name="Utilisateur" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Utilisateur" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
