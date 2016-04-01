@@ -1,37 +1,37 @@
 //
-//  Conversation.swift
+//  Commentaire.swift
 //  ProjetiOS2016
 //
-//  Created by tp on 23/03/2016.
+//  Created by tp on 01/04/2016.
 //  Copyright © 2016 tp. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-
-class Conversation: UIViewController {
-    
+class Commentaire: UIViewController {
     
     var current = "null"
-    var createurService = ""
+    var idService = ""
     
-    @IBAction func envoyerMessage(sender: AnyObject) {
+    @IBAction func commenter(sender: AnyObject) {
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let entity = NSEntityDescription.entityForName("Message", inManagedObjectContext:managedContext)
-        let monMessage = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
-        monMessage.setValue(message.text, forKey: "texteMessage")
-        monMessage.setValue(current, forKey: "usernameExpediteur")
-        monMessage.setValue(createurService, forKey: "usernameDestinataire")
+        let entity = NSEntityDescription.entityForName("Note", inManagedObjectContext:managedContext)
+        let monCommentaire = NSManagedObject(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        monCommentaire.setValue(texteCommentaire.text, forKey: "commentaireNote")
+        monCommentaire.setValue(Int(noteCommentaire.text!), forKey: "valeurNote")
+        monCommentaire.setValue(current, forKey: "usernameNote")
+        monCommentaire.setValue(Int(idService), forKey: "idService")
         
-        var messages = [NSManagedObject]()
-        let fetchRequest = NSFetchRequest(entityName: "Message")
+        var commentaires = [NSManagedObject]()
+        let fetchRequest = NSFetchRequest(entityName: "Note")
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            messages = results as! [NSManagedObject]
-            monMessage.setValue((messages.count + 1), forKey: "idMessage")
-            print(String(messages.count))
+            commentaires = results as! [NSManagedObject]
+            monCommentaire.setValue((commentaires.count + 1), forKey: "idNote")
+            print(String(commentaires.count))
             
             // le delege
             //delegeService.addNewService(current)
@@ -46,22 +46,34 @@ class Conversation: UIViewController {
         }catch{
             print("erreur creation message")
         }
+        
     }
-    
-    @IBOutlet weak var message: UITextField!
+    @IBOutlet weak var noteCommentaire: UITextField!
+    @IBOutlet weak var texteCommentaire: UITextField!
     var resultats:NSArray = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getData()
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func getData() {
         let apDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         
         let context:NSManagedObjectContext = apDel.managedObjectContext
         
-        let request = NSFetchRequest(entityName: "Message")
+        let request = NSFetchRequest(entityName: "Note")
         
         request.returnsObjectsAsFaults = false;
         
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [current, createurService])
-        request.predicate = NSPredicate(format: "usernameDestinataire = %@ AND usernameExpediteur = %@", argumentArray: [createurService, current])
+        request.predicate = NSPredicate(format: "idService = %@", argumentArray: [idService])
         
         
         do {
@@ -75,25 +87,6 @@ class Conversation: UIViewController {
         
         
     }
-
-    override func viewDidLoad() {
-        
-        
-        
-        super.viewDidLoad()
-        
-        print(current)
-        print(createurService)
-        
-        getData()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -102,14 +95,15 @@ class Conversation: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         print("test")
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! Cellule
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as! CellCommentaire
         
         let res = resultats[indexPath.row] as! NSManagedObject
-        let message = res.valueForKey("texteMessage") as? String
-        cell.message.text = message
-        let expediteur = res.valueForKey("usernameExpediteur") as? String
-        cell.expediteur.text = expediteur
-        
+        let message = res.valueForKey("commentaireNote") as? String
+        cell.texteCommentaire.text = message
+        let note = res.valueForKey("valeurNote") as? Int
+        cell.note.text = String(note)
+        let user = res.valueForKey("usernameNote") as? String
+        cell.userCommentaire.text = user
         return cell
     }
     
