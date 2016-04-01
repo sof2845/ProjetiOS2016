@@ -215,6 +215,13 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
             message1.current = current
             
             }
+            
+       
+            
+            
+            
+
+            
         /*    if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
             
          //   message.service = resultats[indexPath.row] as! NSManagedObject
@@ -224,7 +231,15 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
             
         }
         
-        } // end de la preparation du délégué 
+        if ( segue.identifier == "Contacter" ) {
+            
+            let message = segue.destinationViewController as! MesMessages
+            
+            message.current = current
+        }
+        
+        
+        } // end de la preparation du délégué
 
     func detailIndexPath(indexPath: NSIndexPath) -> NSManagedObject {
     
