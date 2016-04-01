@@ -142,7 +142,7 @@ class ViewController: UIViewController, SeConnecterDelegate, creerServiceDelegat
         let cell = tableView.dequeueReusableCellWithIdentifier("cellule") as? TableCellControler
         
          res = resultats[indexPath.row] as! NSManagedObject
-        var text = res.valueForKey("categorieService") as? String
+        let text = res.valueForKey("categorieService") as? String
         
       print(text)
         
